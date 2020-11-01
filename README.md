@@ -4,7 +4,7 @@ Table of contents
 <!--ts-->
    * [Backup MongoDB - AWS Lambda & S3](#Backup-MongoDB---AWS-Lambda-&-S3)
    * [Healthcheck - AWS Route 53](#Healthcheck---AWS-Route-53)
-   * [Keep server online 24/7 - PM2](#Keep-server-online-24/7---PM2)
+   * [Keep server online 24&#47;7 - PM2](#Keep-server-online-24&#47;7---PM2)
 <!--te-->
 
 # Backup MongoDB - AWS Lambda & S3
@@ -160,7 +160,7 @@ IMG 06
 
 ------------
 
-# Keep server online 24/7 - PM2
+# Keep server online 24&#47;7 - PM2
 
 [PM2](https://pm2.keymetrics.io/ "PM2") es un daemon que permite manejar procesos y restablecerlos ante eventuales fallos y caidas de los mismos. Ademas permite de forma facil implementar balanceo de carga y monitoreo de performance y estado de los servidores.
 
@@ -168,7 +168,7 @@ En el caso en que se este usando [Docker)](https://www.docker.com/ "Docker") los
 
 ## PM2 Instalación y Configuración
 
-En la [documentacion oficial)](https://pm2.keymetrics.io/docs/usage/docker-pm2-nodejs/ "documentacion oficial") se describen los pasos basicos de la integracion de PM2.
+En la [documentacion oficial](https://pm2.keymetrics.io/docs/usage/docker-pm2-nodejs/ "documentacion oficial") se describen los pasos basicos de la integracion de PM2.
 
 El primer paso es instalar PM2 esto debe hacerse en el **Dokerfile**:
 ```javascript
