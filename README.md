@@ -152,7 +152,8 @@ IMG 05
 
 Una vez creado el Health checks se puede configurarle un Alarm para que se envie un mail o un sms y notifique el problema.
 
-En la pantalla de creacion debe seleccionarse **Send notification**
+En la pantalla de creacion debe seleccionarse **Send notification** y seleccionar o crear un SNS topic y asignar los emails. Esto permitira crear una configuracion basica que permite ser notificados por email pero luego desde [Simple Notification Service (Amazon SNS)]( https://console.aws.amazon.com/sns/v3/home?region=us-east-1#/topics "Simple Notification Service (Amazon SNS)s") es posible realizar configuraciones mas avanzadas y seleccionar otros tipos de notificaciones.
+
 IMG 06
 
 
