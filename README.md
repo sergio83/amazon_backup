@@ -5,9 +5,6 @@ Table of contents
    * [Backup MongoDB - AWS Lambda & S3](#Backup-MongoDB---AWS-Lambda-&-S3)
    * [Healthcheck - AWS Route 53](#Healthcheck---AWS-Route-53)
    * [Keep server online 24&#47;7 - PM2](#Keep-server-online-247---PM2)
-      * [Keep server online 24&#47;7](#Keep-server-online-247)
-      * [Load Balancing](#Load-Balancing)
-      * [Monitoring & Logs](#Monitoring-&-Logs)
 <!--te-->
 
 # Backup MongoDB - AWS Lambda & S3
