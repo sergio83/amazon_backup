@@ -94,6 +94,15 @@ El script requiere saber como conectarse a la base de datos y en donde se deben 
 
 Desde esta seccion se debe configurar la memoria y el timeout de la funcion lambda.
 
+### 3.6 Monitoring tools
+
+Desde esta sección se puede habilitar *CloudWatch Lambda Insights* para trackear informacion de ejecución y performance de la función lambda.
+
+## 4 - Conclusión
+
+Tras completar la configuración anterior, ya tendríamos todos los requisitos para que funcionara la función de AWS Lambda. El propio panel de configuración nos da la opción de probar la función directamente (sin tener que esperar a que se ejecute por los “triggers” que se hayan establecido). El primer millón de llamadas a las funciones cada mes es gratuito.
+
+
 # Healthcheck - AWS Route 53
 
 
