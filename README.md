@@ -229,15 +229,19 @@ Para poder monitorear y ver los estados es necesario ingresar dentro del Docker 
 Los pasos a seguir son:
 
 - 1 Ingresar al servidor por ssh
+
 `ssh -i certificate.pem ubuntu@ip`
 
 - 2 Ver las containers que hay corriendo
+
 `docker ps`
 
 - 3 Ingresar al container
+
 `docker exec -it container_name bash`
 
 - 4 PM2 status
+
 Una vez dentro del container se tiene acceso a PM2, ejecutando el siguiente comando es posible ver el estado del servidor:
 `pm2 status`
 
@@ -245,4 +249,5 @@ IMG 07
 
 
 - 5 PM2 logs
+
 `pm2 logs --json` 
