@@ -160,13 +160,15 @@ IMG 06
 
 # Keep server online 24/7 - PM2
 
-[PM2](https://pm2.keymetrics.io/ "PM2") es un daemon que permite manejar procesos y restablecerlos ante eventuales fallos y caidas de los mismos. 
+[PM2](https://pm2.keymetrics.io/ "PM2") es un daemon que permite manejar procesos y restablecerlos ante eventuales fallos y caidas de los mismos. Ademas permite de forma facil implementar balanceo de carga y monitoreo de performance y estado de los servidores.
 
 En el caso en que se este usando [Docker)](https://www.docker.com/ "Docker") los containers se restablecen segun las restart policy [restart policy)](https://docs.docker.com/compose/compose-file/#restart "restart policy") configuradas en el **docker-compose.yml** sin embargo para que los servidores que corren dentro de cada container se restablezcan es necesario usar algun manejador de procesos como **PM2**
 
+## PM2 Instalación y Configuración
+
 En la [documentacion oficial)](https://pm2.keymetrics.io/docs/usage/docker-pm2-nodejs/ "documentacion oficial") se describen los pasos basicos de la integracion de PM2.
 
-El primer paso es instalar PM2 esto debe hacerse en el Dokerfile:
+El primer paso es instalar PM2 esto debe hacerse en el **Dokerfile**:
 ```
 FROM node:12-slim
 WORKDIR /app
@@ -179,9 +181,45 @@ COPY . .
 CMD ["./run.sh"]
 ```
 
+luego debe ejecutarse desde **run.sh**:
+
+```
+#!/bin/sh
+
+pm2-runtime start ecosystem.config.js
+```
+
+por ultimo se debe configurar PM2 esto se hace por medio del archivo de configuración **ecosystem.config.js**:
+
+```
+module.exports = [{
+  script: 'server.js',
+  name: 'bettervet_api',
+  exec_mode: 'cluster',
+  instances: 2
+}]
+```
+
+Las opciones básicas son:
+
+| Policy  | Description |
+| ------------- | ------------- |
+| script  | script path relative to pm2 start  |
+| name  | application name (default to script filename without extension)  |
+| exec_mode  | mode to start your app, can be “cluster” or “fork”, default fork |
+| instances  | number of app instance to be launched  |
+
+La lista completa de opciones disponibles se encuentran en el siguiente [link)](https://pm2.keymetrics.io/docs/usage/application-declaration/#attributes-available "link")
+
+## Load Balancing
+
+Si el servidor es **Stateless Application** (el servidor no tiene un estado interno en memoria) entonces es posible configurar PM2 para que ejecute mas de una instncia y haga [balanceo de carga)](https://pm2.io/docs/runtime/guide/load-balancing/ "balanceo de carga"). Para esto debe configurarse **exec_mode** como **cluster** por otro lado se puede configurar la cantidad de **instances** que se van a correr. 
+
+Las opciones posibles son:
+- **max** PM2 detectará automáticamente la cantidad de CPU disponibles y ejecutará tantos procesos como sea posible
+- **integer** cantidad de procesos a ejecutar
 
 
-
-
+## PM2 Monitoring & Logs
 
 
