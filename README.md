@@ -2,7 +2,7 @@ Table of contents
 =================
 
 <!--ts-->
-   * [Backup MongoDB - AWS Lambda & S3](#Backup-MongoDB---AWS-Lambda-&-S3)
+   * [Backup MongoDB - AWS Lambda & S3](#Backup-MongoDB---AWS-Lambda--S3)
    * [Healthcheck - AWS Route 53](#Healthcheck---AWS-Route-53)
    * [Keep server online 24&#47;7 - PM2](#Keep-server-online-247---PM2)
 <!--te-->
