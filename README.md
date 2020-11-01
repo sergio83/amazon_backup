@@ -15,7 +15,7 @@ En este caso se va a usar para crear un **backup automático** de forma periódi
 
 ## 1 - Crear una instancia S3
 
-En la instancia S3 se van almacenar los backups de la base de datos y el script que permite llevar acabo esta operacion.
+En la instancia S3 se van almacenar los backups de la base de datos y el script que permite llevar acabo esta operación.
 
 ### 1.1 Crear bucket
 
@@ -37,7 +37,7 @@ IMG 01
 
 ### 1.3 Obtener el link del zip del sript en el S3
 
-Seleccionar en S3 el zip y dentro de la pantalla de detalle en la solapa de **Overview** se encuentra el **Object URL** tomar nota del mismo, luego se usara para cargarlo en la funcion Lambda.
+Seleccionar en S3 el zip y dentro de la pantalla de detalle en la solapa de **Overview** se encuentra el **Object URL** tomar nota del mismo, luego se usara para cargarlo en la función Lambda.
 
 IMG 02
 
@@ -49,11 +49,11 @@ En el siguiente link se podran encontrar algunos ejemplos de scripts:
 
 Cómo todo componente de AWS es necesario establecer unos permisos para poder interactuar entre los demás componentes, en este ejemplo necesitamos tener permisos para que *Lambda* interactue con *EC2* y también con **CloudWatch** por si queremos ver a través de los log las operaciones realizadas.
 
-El primer paso es ir a la seccion de [Identity and Access Management (IAM)](https://console.aws.amazon.com/iam "Identity and Access Management (IAM)") donde se administran los roles y policies.
+El primer paso es ir a la sección de [Identity and Access Management (IAM)](https://console.aws.amazon.com/iam "Identity and Access Management (IAM)") donde se administran los roles y policies.
 
 ### 2.1 Crear Policy
 
-Crear una Policy selecionando como servicio *S3*, action **PutObject** y resources **All Resources** de este modo la funcion Lambda tendra los permisos para subir los backups al bucket. En este ejemplo la policy se llamara *S3-Backup*.
+Crear una Policy selecionando como servicio *S3*, action **PutObject** y resources **All Resources** de este modo la función Lambda tendra los permisos para subir los backups al bucket. En este ejemplo la policy se llamara *S3-Backup*.
 
 IMG 03
 [Amazon Policies](https://console.aws.amazon.com/iam/home?region=us-east-2#/policies "Amazon Policies")
@@ -114,7 +114,7 @@ El script requiere saber como conectarse a la base de datos y en donde se deben 
 
 ### 3.5 Basic settings
 
-Desde esta seccion se debe configurar la memoria y el timeout de la funcion lambda.
+Desde esta sección se debe configurar la memoria y el timeout de la función lambda.
 
 ### 3.6 Monitoring tools
 
@@ -128,7 +128,7 @@ Tras completar la configuración anterior, ya tendríamos todos los requisitos p
 
 # Healthcheck - AWS Route 53
 
-En la siguiente seccion se describe como usar Amazon Route 53 para controlar de manera independiente el estado de la aplicación y sus puntos de enlace y ser notificado ante una eventual caida del server. Los costos de este servicio se encuentran en [Amazon Route 53 pricing](https://aws.amazon.com/es/route53/pricing/ "Amazon Route 53 pricing")
+En la siguiente sección se describe como usar Amazon Route 53 para controlar de manera independiente el estado de la aplicación y sus puntos de enlace y ser notificado ante una eventual caida del server. Los costos de este servicio se encuentran en [Amazon Route 53 pricing](https://aws.amazon.com/es/route53/pricing/ "Amazon Route 53 pricing")
 
 
 ## 1 - Crear un el Healthcheck endpoint
@@ -154,7 +154,7 @@ IMG 05
 
 Una vez creado el Health checks se puede configurarle un Alarm para que se envie un mail o un sms y notifique el problema.
 
-En la pantalla de creacion debe seleccionarse **Send notification** y seleccionar o crear un SNS topic y asignar los emails. Esto permitira crear una configuracion basica que permite ser notificados por email pero luego desde [Simple Notification Service (Amazon SNS)]( https://console.aws.amazon.com/sns/v3/home?region=us-east-1#/topics "Simple Notification Service (Amazon SNS)s") es posible realizar configuraciones mas avanzadas y seleccionar otros tipos de notificaciones.
+En la pantalla de creación debe seleccionarse **Send notification** y seleccionar o crear un SNS topic y asignar los emails. Esto permitira crear una configuración basica que permite ser notificados por email pero luego desde [Simple Notification Service (Amazon SNS)]( https://console.aws.amazon.com/sns/v3/home?region=us-east-1#/topics "Simple Notification Service (Amazon SNS)s") es posible realizar configuraciones mas avanzadas y seleccionar otros tipos de notificaciones.
 
 IMG 06
 
@@ -168,7 +168,7 @@ En el caso en que se este usando [Docker)](https://www.docker.com/ "Docker") los
 
 ## PM2 Instalación y Configuración
 
-En la [documentacion oficial](https://pm2.keymetrics.io/docs/usage/docker-pm2-nodejs/ "documentacion oficial") se describen los pasos basicos de la integracion de PM2.
+En la [documentación oficial](https://pm2.keymetrics.io/docs/usage/docker-pm2-nodejs/ "documentacion oficial") se describen los pasos basicos de la integración de PM2.
 
 El primer paso es instalar PM2 esto debe hacerse en el **Dokerfile**:
 ```javascript
