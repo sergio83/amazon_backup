@@ -47,9 +47,7 @@ En el siguiente link se podran encontrar algunos ejemplos de scripts:
 
 Cómo todo componente de AWS es necesario establecer unos permisos para poder interactuar entre los demás componentes, en este ejemplo necesitamos tener permisos para que *Lambda* interactue con *EC2* y también con *CloudWatch* por si queremos ver a través de los log las operaciones realizadas.
 
-El primer paso es ir a la seccion de *Identity and Access Management (IAM)* donde se administran los roles y policies.
-
-[Identity and Access Management (IAM)](https://console.aws.amazon.com/iam "Identity and Access Management (IAM)")
+El primer paso es ir a la seccion de [Identity and Access Management (IAM)](https://console.aws.amazon.com/iam "Identity and Access Management (IAM)") donde se administran los roles y policies.
 
 ### 2.1 Crear Policy
 
