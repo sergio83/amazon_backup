@@ -171,7 +171,7 @@ En el caso en que se este usando [Docker)](https://www.docker.com/ "Docker") los
 En la [documentacion oficial)](https://pm2.keymetrics.io/docs/usage/docker-pm2-nodejs/ "documentacion oficial") se describen los pasos basicos de la integracion de PM2.
 
 El primer paso es instalar PM2 esto debe hacerse en el **Dokerfile**:
-```
+```javascript
 FROM node:12-slim
 WORKDIR /app
 
@@ -185,7 +185,7 @@ CMD ["./run.sh"]
 
 luego debe ejecutarse desde **run.sh**:
 
-```
+```javascript
 #!/bin/sh
 
 pm2-runtime start ecosystem.config.js
@@ -193,7 +193,7 @@ pm2-runtime start ecosystem.config.js
 
 por ultimo se debe configurar PM2 esto se hace por medio del archivo de configuración **ecosystem.config.js**:
 
-```
+```javascript
 module.exports = [{
   script: 'server.js',
   name: 'bettervet_api',
