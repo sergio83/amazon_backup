@@ -5,7 +5,7 @@ Table of contents
 =================
 
 <!--ts-->
-   * [Backup MongoDB - AWS Lambda & S3](#Backup-MongoDB-AWS-Lambda-&-S3)
+   * [Backup MongoDB - AWS Lambda & S3](#Backup-MongoDB---AWS-Lambda-&-S3)
    * [Healthcheck - AWS Route 53](#Healthcheck---AWS-Route-53)
 <!--te-->
 
