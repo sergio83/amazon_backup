@@ -34,14 +34,20 @@ https://s3.console.aws.amazon.com/s3/home?region=us-east-2 "Amazon S3")
 - Subir el zip al S3.
 
 <br />
+
 ![01](img/01.png)
+
 <br />
 
 ### 1.3 Obtener el link del zip del sript en el S3
 
 Seleccionar en S3 el zip y dentro de la pantalla de detalle en la solapa de **Overview** se encuentra el **Object URL** tomar nota del mismo, luego se usara para cargarlo en la función Lambda.
 
-IMG 02
+<br />
+
+![02](img/02.png)
+
+<br />
 
 En el siguiente link se podrán encontrar algunos ejemplos de scripts:
 [Amazon Examples](https://github.com/awsdocs/aws-doc-sdk-examples "Amazon Examples")
@@ -57,7 +63,13 @@ El primer paso es ir a la sección de [Identity and Access Management (IAM)](htt
 
 Crear una Policy selecionando como servicio **S3**, actión **PutObject** y resources **All Resources** de este modo la función Lambda tendrá los permisos para subir los backups al bucket. En este ejemplo la policy se llamara **S3-Backup**.
 
-IMG 03
+
+<br />
+
+![03](img/03.png)
+
+<br />
+
 [Amazon Policies](https://console.aws.amazon.com/iam/home?region=us-east-2#/policies "Amazon Policies")
 
 ### 2.2 Crear Rol
@@ -90,6 +102,13 @@ Finalmente se debe crear la funcional lambda que ejecutara periódicamente el sc
 
 ### 3.1 Información básica
 Se deberá crear a partir del template básico, se le deberá dar un nombre, asignar la versión de node y asignarle los permisos anteriormente creados.
+
+
+<br />
+
+![04](img/04.png)
+
+<br />
 
 ### 3.2 Agregar Trigger
 
@@ -126,6 +145,8 @@ Desde esta sección se puede habilitar **CloudWatch Lambda Insights** para track
 
 Tras completar la configuración anterior, ya tendríamos todos los requisitos para que funcionara la función de AWS Lambda. El propio panel de configuración nos da la opción de probar la función directamente (sin tener que esperar a que se ejecute por los “triggers” que se hayan establecido). El primer millón de llamadas a las funciones cada mes es gratuito.
 
+<br />
+
 ------------
 
 # Healthcheck - AWS Route 53
@@ -150,7 +171,11 @@ module.exports = router;
 
 Se debe configurar Route 53 para que llame cada 30 segundos al endpoint expuesto en EC2. 
 
-IMG 05
+<br />
+
+![05](img/05.png)
+
+<br />
 
 ## 3 - Configurar Alarm
 
@@ -158,7 +183,11 @@ Una vez creado el Health checks se puede configurarle un Alarm para que se enví
 
 En la pantalla de creación debe seleccionarse **Send notification** y seleccionar o crear un SNS topic y asignar los emails. Esto permitirá crear una configuración básica que permite ser notificados por email pero luego desde [Simple Notification Service (Amazon SNS)]( https://console.aws.amazon.com/sns/v3/home?region=us-east-1#/topics "Simple Notification Service (Amazon SNS)s") es posible realizar configuraciones más avanzadas y seleccionar otros tipos de notificaciones.
 
-IMG 06
+<br />
+
+![06](img/06.png)
+
+<br />
 
 ------------
 
@@ -248,7 +277,11 @@ Una vez dentro del container se tiene acceso a PM2, ejecutando el siguiente coma
 
 `pm2 status`
 
-IMG 07
+<br />
+
+![07](img/07.png)
+
+<br />
 
 
 #### 5 - PM2 logs
