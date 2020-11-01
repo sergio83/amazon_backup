@@ -63,14 +63,13 @@ El primer paso es ir a la sección de [Identity and Access Management (IAM)](htt
 
 Crear una Policy selecionando como servicio **S3**, actión **PutObject** y resources **All Resources** de este modo la función Lambda tendrá los permisos para subir los backups al bucket. En este ejemplo la policy se llamara **S3-Backup**.
 
+[Amazon Policies](https://console.aws.amazon.com/iam/home?region=us-east-2#/policies "Amazon Policies")
 
 <br />
 
 ![03](img/03.png)
 
 <br />
-
-[Amazon Policies](https://console.aws.amazon.com/iam/home?region=us-east-2#/policies "Amazon Policies")
 
 ### 2.2 Crear Rol
 
