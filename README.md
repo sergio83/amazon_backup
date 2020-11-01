@@ -4,6 +4,7 @@ Table of contents
 <!--ts-->
    * [Backup MongoDB - AWS Lambda & S3](#Backup-MongoDB---AWS-Lambda-&-S3)
    * [Healthcheck - AWS Route 53](#Healthcheck---AWS-Route-53)
+   * [Keep server online 24/7 - PM2](#Keep-server-online-24/7---PM2)
 <!--te-->
 
 # Backup MongoDB - AWS Lambda & S3
@@ -156,6 +157,31 @@ Una vez creado el Health checks se puede configurarle un Alarm para que se envie
 En la pantalla de creacion debe seleccionarse **Send notification** y seleccionar o crear un SNS topic y asignar los emails. Esto permitira crear una configuracion basica que permite ser notificados por email pero luego desde [Simple Notification Service (Amazon SNS)]( https://console.aws.amazon.com/sns/v3/home?region=us-east-1#/topics "Simple Notification Service (Amazon SNS)s") es posible realizar configuraciones mas avanzadas y seleccionar otros tipos de notificaciones.
 
 IMG 06
+
+# Keep server online 24/7 - PM2
+
+[PM2](https://pm2.keymetrics.io/ "PM2") es un daemon que permite manejar procesos y restablecerlos ante eventuales fallos y caidas de los mismos. 
+
+En el caso en que se este usando [Docker)](https://www.docker.com/ "Docker") los containers se restablecen segun las restart policy [restart policy)](https://docs.docker.com/compose/compose-file/#restart "restart policy") configuradas en el **docker-compose.yml** sin embargo para que los servidores que corren dentro de cada container se restablezcan es necesario usar algun manejador de procesos como **PM2**
+
+En la [documentacion oficial)](https://pm2.keymetrics.io/docs/usage/docker-pm2-nodejs/ "documentacion oficial") se describen los pasos basicos de la integracion de PM2.
+
+El primer paso es instalar PM2 esto debe hacerse en el Dokerfile:
+```
+FROM node:12-slim
+WORKDIR /app
+
+COPY ./package.json ./package-lock.json ./
+RUN npm ci
+RUN npm install pm2 -g
+
+COPY . .
+CMD ["./run.sh"]
+```
+
+
+
+
 
 
 
