@@ -35,7 +35,7 @@ https://s3.console.aws.amazon.com/s3/home?region=us-east-2 "Amazon S3")
 
 IMG 01
 
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+![01](img/01.png)
 
 ### 1.3 Obtener el link del zip del sript en el S3
 
