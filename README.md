@@ -126,7 +126,8 @@ Tras completar la configuración anterior, ya tendríamos todos los requisitos p
 
 # Healthcheck - AWS Route 53
 
-En la siguiente seccion se describe como usar Amazon Route 53 para controlar de manera independiente el estado de la aplicación y sus puntos de enlace. 
+En la siguiente seccion se describe como usar Amazon Route 53 para controlar de manera independiente el estado de la aplicación y sus puntos de enlace y ser notificado ante una eventual caida del server. Los costos de este servicio se encuentran en [Amazon Route 53 pricing](https://aws.amazon.com/es/route53/pricing/ "Amazon Route 53 pricing")
+
 
 ## 1 - Crear un el Healthcheck endpoint
 
@@ -141,5 +142,18 @@ router.get("/", async function (req, res) {
 
 module.exports = router;
 ```
+## 2 - Crear el Health checks
+
+Se debe configurar Route 53 para que llame cada 30 segundos al endpoint expuesto en EC2. 
+
+IMG 05
+
+## 3 - Configurar Alarm
+
+Una vez creado el Health checks se puede configurarle un Alarm para que se envie un mail o un sms y notifique el problema.
+
+En la pantalla de creacion debe seleccionarse *Send notification*
+IMG 06
+
 
 
