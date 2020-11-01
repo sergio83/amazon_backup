@@ -124,7 +124,6 @@ Desde esta sección se puede habilitar *CloudWatch Lambda Insights* para trackea
 Tras completar la configuración anterior, ya tendríamos todos los requisitos para que funcionara la función de AWS Lambda. El propio panel de configuración nos da la opción de probar la función directamente (sin tener que esperar a que se ejecute por los “triggers” que se hayan establecido). El primer millón de llamadas a las funciones cada mes es gratuito.
 
 ------------
-====================================================================================
 
 # Healthcheck - AWS Route 53
 
