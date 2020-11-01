@@ -34,9 +34,9 @@ https://s3.console.aws.amazon.com/s3/home?region=us-east-2 "Amazon S3")
 - Subir el zip al S3.
 
 <br />
-
+<p align="center">
 ![01](img/01.png)
-
+</p>
 <br />
 
 ### 1.3 Obtener el link del zip del sript en el S3
