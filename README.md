@@ -5,6 +5,9 @@ Table of contents
    * [Backup MongoDB - AWS Lambda & S3](#Backup-MongoDB---AWS-Lambda-&-S3)
    * [Healthcheck - AWS Route 53](#Healthcheck---AWS-Route-53)
    * [Keep server online 24&#47;7 - PM2](#Keep-server-online-247---PM2)
+      * [Keep server online 24&#47;7](#Keep-server-online-247)
+      * [Load Balancing](#Load-Balancing)
+      * [Monitoring & Logs](#Monitoring-&-Logs)
 <!--te-->
 
 # Backup MongoDB - AWS Lambda & S3
@@ -222,7 +225,7 @@ Las opciones posibles son:
 - **integer** cantidad de procesos a ejecutar
 
 
-## PM2 Monitoring & Logs
+## Monitoring & Logs
 
 Para poder monitorear y ver los estados es necesario ingresar dentro del Docker container en el que esta corriendo el servidor. 
 
