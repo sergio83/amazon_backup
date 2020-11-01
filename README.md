@@ -17,7 +17,7 @@ En este caso se va a usar para crear un **backup automático** de forma periódi
 
 En la instancia S3 se van almacenar los backups de la base de datos y el script que permite llevar acabo esta operacion.
 
-### 1.1 - Crear bucket
+### 1.1 Crear bucket
 
 Crear el bucket y asegurarse de que la region seleccionada es la misma que la de los otros componentes de la arquitectura. Ademas se debe bloquear el acceso publico seleccionando **Block all public access**
 
@@ -26,7 +26,7 @@ Una vez creado el bucket crear una carpeta *backups* donde se almacenaran los ba
 [Amazon S3](
 https://s3.console.aws.amazon.com/s3/home?region=us-east-2 "Amazon S3")
 
-### 1.2 - Subir el script al S3
+### 1.2 Subir el script al S3
 
 - Clonar este repositorio. (`nodejs` is required)
 - Ejecutar `npm install`.
@@ -35,7 +35,7 @@ https://s3.console.aws.amazon.com/s3/home?region=us-east-2 "Amazon S3")
 
 IMG 01
 
-### 1.3 - Obtener el link del zip del sript en el S3
+### 1.3 Obtener el link del zip del sript en el S3
 
 Seleccionar en S3 el zip y dentro de la pantalla de detalle en la solapa de **Overview** se encuentra el **Object URL** tomar nota del mismo, luego se usara para cargarlo en la funcion Lambda.
 
@@ -243,6 +243,7 @@ Los pasos a seguir son:
 #### 4 - PM2 status
 
 Una vez dentro del container se tiene acceso a PM2, ejecutando el siguiente comando es posible ver el estado del servidor:
+
 `pm2 status`
 
 IMG 07
