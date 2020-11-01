@@ -66,6 +66,14 @@ Ademas se deben asignar esta las siguientes policies:
 - AWSLambdaBasicExecutionRole
 - CloudWatchLambdaInsightsExecutionRolePolicy
 
+| Policy  | Description |
+| ------------- | ------------- |
+| S3-Backup  | Provides write permissions to S3  |
+| CloudWatchAgentServerPolicy  | Permissions required to use AmazonCloudWatchAgent on servers  |
+| AWSLambdaBasicExecutionRole  | Provides write permissions to CloudWatch Logs |
+| CloudWatchLambdaInsightsExecutionRolePolicy  | Policy required for the Lambda Insights Extension  |
+
+
 Las ultimas tres policies permiten registrar logs, monitorear la funcion lambda y crear alertas.
 
 Por ultimo se debe asignarle un nombre, en este ejemplo se llamara *S3BackupRole*.
