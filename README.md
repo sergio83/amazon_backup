@@ -152,7 +152,7 @@ IMG 05
 
 Una vez creado el Health checks se puede configurarle un Alarm para que se envie un mail o un sms y notifique el problema.
 
-En la pantalla de creacion debe seleccionarse *Send notification*
+En la pantalla de creacion debe seleccionarse **Send notification**
 IMG 06
 
 
