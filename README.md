@@ -1,3 +1,10 @@
+
+**Table of Contents**
+
+[TOCM]
+
+[TOC]
+
 # Backup MongoDB - AWS Lambda & S3
 
 AWS Lambda es un sistema capaz de ejecutar tareas en respuesta a eventos sin aprovisionar ni administrar servidores.
@@ -14,7 +21,8 @@ Crear el bucket y asegurarse de que la region seleccionada es la misma que la de
 
 Una vez creado el bucket crear una carpeta *backups* donde se almacenaran los backups creados.
 
-https://s3.console.aws.amazon.com/s3/home?region=us-east-2
+[Amazon S3](
+https://s3.console.aws.amazon.com/s3/home?region=us-east-2 "Amazon S3")
 
 ### 1.2 - Subir el script al S3
 
@@ -31,20 +39,24 @@ Seleccionar en S3 el zip y dentro de la pantalla de detalle en la solapa de *Ove
 
 IMG 02
 
+En el siguiente link se podran encontrar algunos ejemplos de scripts:
+[Amazon Examples](https://github.com/awsdocs/aws-doc-sdk-examples "Amazon Examples")
+
+
 ## 2 - Crear Rol y Policy
 
 Cómo todo componente de AWS es necesario establecer unos permisos para poder interactuar entre los demás componentes, en este ejemplo necesitamos tener permisos para que *Lambda* interactue con *EC2* y también con *CloudWatch* por si queremos ver a través de los log las operaciones realizadas.
 
 El primer paso es ir a la seccion de *Identity and Access Management (IAM)* donde se administran los roles y policies.
 
-https://console.aws.amazon.com/iam
+[Identity and Access Management (IAM)](https://console.aws.amazon.com/iam "Identity and Access Management (IAM)")
 
 ### 2.1 Crear Policy
 
 Crear una Policy selecionando como servicio *S3*, action *PutObject* y resources *All Resources* de este modo la funcion Lambda tendra los permisos para subir los backups al bucket. En este ejemplo la policy se llamara *S3-Backup*.
 
 IMG 03
-https://console.aws.amazon.com/iam/home?region=us-east-2#/policies
+[Amazon Policies](https://console.aws.amazon.com/iam/home?region=us-east-2#/policies "Amazon Policies")
 
 ### 2.2 Crear Rol
 
@@ -63,7 +75,8 @@ Por ultimo se debe asignarle un nombre, en este ejemplo se llamara *S3BackupRole
 ## 3 - Crear funcion Lambda
 
 Finalmente se debe crear la funcional lambda que ejecutara periodicamente el script que realiza el backup de la base de datos.
-https://us-east-2.console.aws.amazon.com/lambda
+
+[Amazon Lambda](https://us-east-2.console.aws.amazon.com/lambda "Amazon Lambda")
 
 ### 3.1 Información basica
 Se debera crear a partir del template basico, se le debera dar un nombre, asignar la version de node y asignarle los permisos anteriormente creados.
@@ -77,7 +90,8 @@ El evento puede configurarse para que se dispare a una hora y dia especifico, po
 Minute - Hora - Day of month	- Month	 - Day of week	- Year
 
 Todas las opciones estan descriptas en el siguiente link:
-https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html
+
+[Amazon Schedule Events](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html "Amazon Schedule Events")
 
 ### 3.3 Agregar codigo
 
@@ -104,5 +118,21 @@ Tras completar la configuración anterior, ya tendríamos todos los requisitos p
 
 
 # Healthcheck - AWS Route 53
+
+En la siguiente seccion se describe como usar Amazon Route 53 para controlar de manera independiente el estado de la aplicación y sus puntos de enlace. 
+
+## 1 - Crear un el Healthcheck endpoint
+
+Se debe exponer en la instancia EC2 que se quiere validar un servicio que simplemente devuelva un status code 200.
+
+```javascript
+const router = require("express").Router();
+
+router.get("/", async function (req, res) {
+	res.status(200).send();
+});
+
+module.exports = router;
+```
 
 
