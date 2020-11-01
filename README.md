@@ -33,9 +33,9 @@ https://s3.console.aws.amazon.com/s3/home?region=us-east-2 "Amazon S3")
 - Crear un zip y asegurarse de comprimir el contenido y no el directorio en si. Para esto crear el zip desde línea de comandos y desde dentro del directorio ejecutar el comando `zip -r backup_script.zip .`
 - Subir el zip al S3.
 
-IMG 01
-
+<br />
 ![01](img/01.png)
+<br />
 
 ### 1.3 Obtener el link del zip del sript en el S3
 
