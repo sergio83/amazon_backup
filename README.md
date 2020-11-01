@@ -60,15 +60,15 @@ Las ultimas tres policies permiten registrar logs, monitorear la funcion lambda 
 
 Por ultimo se debe asignarle un nombre, en este ejemplo se llamara *S3BackupRole*.
 
-## 2 - Crear funcion Lambda
+## 3 - Crear funcion Lambda
 
 Finalmente se debe crear la funcional lambda que ejecutara periodicamente el script que realiza el backup de la base de datos.
 https://us-east-2.console.aws.amazon.com/lambda
 
-### 2.1 Información basica
+### 3.1 Información basica
 Se debera crear a partir del template basico, se le debera dar un nombre, asignar la version de node y asignarle los permisos anteriormente creados.
 
-### 2.2 Agregar Trigger
+### 3.2 Agregar Trigger
 
 El trigger es el evento por el cual se ejecuta la funcion lambda. En este caso vamos a querer que el backup se ejecute periodicamente por ende se debe seleccionar el tipo *EventBridge (CloudWatch Events)*
 
@@ -79,18 +79,18 @@ Minute - Hora - Day of month	- Month	 - Day of week	- Year
 Todas las opciones estan descriptas en el siguiente link:
 https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html
 
-### 2.3 Agregar codigo
+### 3.3 Agregar codigo
 
 En la seccion de *Function code* desde actions puede subirse el codigo desde un archivo o desde S3. Como el zip pesa mas de 10mb debe hacerse desde S3. El link del zip se obtuvo en el paso 1.3
 
-### 2.4 Environment variables
+### 3.4 Environment variables
 
 El script requiere saber como conectarse a la base de datos y en donde se deben guardar los backups. Esta información se le pasa por medio de las variables de entorno.
 
 - MONGO_URL `mongodb://<user>:<password>@<host>:<port>/<database>`
 - S3_PATH `<s3bucket>/<folder>`
 
-### 2.5 Basic settings
+### 3.5 Basic settings
 
 Desde esta seccion se debe configurar la memoria y el timeout de la funcion lambda.
 
